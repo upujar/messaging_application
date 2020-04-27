@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://prattle.cfai5zcilew6.us-east-1.rds.amazonaws.com:3306/prattle</property>
+    <property name="hibernate.connection.username">admin</property>
+    <property name="hibernate.connection.password">12345678</property>
+    <property name="show_sql">false</property>
+    <property name="format_sql">true</property>
+    <property name="hbm2ddl.auto">create-drop</property>
+<!--    <property name="hibernate.connection.CharSet">utf8mb4</property>-->
+<!--    <property name="hibernate.connection.characterEncoding">utf8mb4</property>-->
+<!--    <property name="hibernate.connection.useUnicode">true</property>-->
+    <mapping class="com.neu.prattle.model.User"/>
+    <mapping class="com.neu.prattle.model.Profile"/>
+    <mapping class="com.neu.prattle.model.Message"/>
+    <mapping class="com.neu.prattle.model.Device"/>
+    <mapping class="com.neu.prattle.model.UserAccountSetting"/>
+    <mapping class="com.neu.prattle.model.Member" />
+    <mapping class="com.neu.prattle.model.Group" />
+    <mapping class="com.neu.prattle.model.Request" />
+    <mapping class="com.neu.prattle.model.Invite" />
+  </session-factory>
+</hibernate-configuration>

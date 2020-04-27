@@ -1,0 +1,207 @@
+body {
+    align-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+
+}
+
+th{
+    padding-bottom: 20px;
+}
+
+table{
+    /*float: left;*/
+    margin-left:50px;
+}
+
+input{
+
+    border: 1px solid #d2dbe3;
+    margin: 0px 5px 15px 5px;
+}
+
+#wrapper {
+    width: 960px;
+    margin: auto;
+    text-align: left;
+    color: #d9d9d9;
+}
+
+p {
+    text-align: left;
+}
+
+button {
+    text-align: center;
+    display: inline;
+    color: #fff;
+    background-color: #51e0f2;
+    padding: 8px;
+    margin: auto;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    box-shadow: none;
+    border: none;
+}
+
+div{
+    margin:auto;
+    text-align: center;
+}
+
+header{
+    text-align: center;
+    font-size: x-large;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.chat-area{
+    text-align: center;
+    min-height: 50%;
+    min-width: 60%;
+    height: 60%;
+    width: 60%;
+    overflow: auto;
+    line-height: 17px;
+    border: 1px solid #d2dbe3;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: #54b2ff;
+}
+button a, a:visited, a:hover, a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #51e0f2;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #54b2ff;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+#addDevice {
+    text-align: center;
+    width: 960px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#addDeviceForm {
+    text-align: left;
+    width: 400px;
+    margin: auto;
+    padding: 10px;
+}
+
+#addDeviceForm span {
+    display: block;
+}
+
+#content {
+    margin: auto;
+    width: 960px;
+}
+
+.device {
+    width: 180px;
+    height: 110px;
+    margin: 10px;
+    padding: 16px;
+    color: #fff;
+    vertical-align: top;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    display: inline-block;
+}
+
+.device.off {
+    background-color: #c8cccf;
+}
+
+.device span {
+    display: block;
+}
+
+.deviceName {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.removeDevice {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.device.Appliance {
+    background-color: #5eb85e;
+}
+
+.device.Appliance a:hover {
+    color: #a1ed82;
+}
+
+.device.Electronics {
+    background-color: #0f90d1;
+}
+
+.device.Electronics a:hover {
+    color: #4badd1;
+}
+
+.device.Lights {
+    background-color: #c2a00c;
+}
+
+.device.Lights a:hover {
+    color: #fad232;
+}
+
+.device.Other {
+    background-color: #db524d;
+}
+
+.device.Other a:hover {
+    color: #ff907d;
+}
+
+.device a {
+    text-decoration: none;
+}
+
+.device a:visited, a:active, a:hover {
+    color: #fff;
+}
+
+.device a:hover {
+    text-decoration: underline;
+}

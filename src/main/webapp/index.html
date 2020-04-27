@@ -1,0 +1,270 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ChitChat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row" id="header-container">
+        <header>ChitChat</header>
+    </div>
+    <div class="tab row">
+        <button class="tablinks active" onclick="openTab(event, 'gate');">Login/Signup</button>
+        <button class="tablinks" onclick="openTab(event, 'chat');">Chat</button>
+        <button class="tablinks" onclick="openTab(event, 'group-config');">Group Configurations</button>
+        <button class="tablinks" onclick="openTab(event, 'requests-to-make');">Make Requests</button>
+        <button class="tablinks" onclick="openTab(event, 'requests-to-approve');">Approve Requests</button>
+    </div>
+
+    <div class="row">
+        <div id="gate" class="col tabcontent" style="display:block">
+            <div class="row">
+
+                <div class=" col-md-12 col-lg-6">
+                    <h3>Sign Up</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right">
+                            UserID:<br><br>
+                            Password:<br><br>
+                            User Name:<br><br>
+                            Profile Name:<br><br>
+                            Private Account:<br><br>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: left">
+                            <input type="text" id="RegisterID" size=25 placeholder="tony">
+                            <input type="password" id="RegisterPassword" size=25 placeholder="pepper">
+                            <input type="text" id="RegisterName" size=25 placeholder="Tony Stark">
+                            <input type="text" size=25 id="RegisterProfile" placeholder="Iron Man">
+                            <br>
+                            <input type="checkbox" size=25 id="RegisterPrivateAccount">
+
+                        </div>
+
+                    </div>
+                    <div><button type="button" onclick="createUser();" style="margin: 5px 5px 5px 5px">Sign Up</button></div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <h3>Log In</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right">
+                            UserID:<br><br>
+                            Password:<br><br>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: left">
+                            <input type="text" id="user_id" size=25 placeholder="UserId"/><br>
+                            <input type="password" id="password" size=25 placeholder="Password"/>
+                        </div>
+
+                    </div>
+                    <div><button type="button" onclick="Login();">Login</button></div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="chat" class="col tabcontent">
+            <div class="col-lg-12">
+                <div class="row">
+                    Choose the type of chat:
+                    <select id="chatType">
+                        <option value="user">User</option>
+                        <option value="group">Group</option>
+                    </select>
+                    <button type="button" onclick="initializeChatScreen();">Go</button>
+                </div>
+
+                <div class="chat-area" id="log" style="text-align: left"></div>
+                <div class="row">
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        To:
+                        <select id="to-dropdown">
+
+                        </select>
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-8" style="text-align: left">
+                        <input data-emojiable="true" data-emoji-input="unicode" type="text" id="msg" placeholder="Message" />
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <button type="button" onclick="send();">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="group-config" class="col tabcontent">
+            <div class="row">
+
+                <div class="col-md-12 col-lg-12">
+                    <h3>Create a Group</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right">
+                            GroupID:<br><br>
+                            Group Name:<br><br>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: left">
+                            <input type="text" id="GroupID" size=25 placeholder="GroupID"><br>
+                            <input type="text" id="GroupName" size=25 placeholder="Name">
+                        </div>
+
+                    </div>
+                    <div><button type="button" onclick="createGroup();">Create Group</button></div>
+
+                    <h3>Add members to a group</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right">
+                            GroupID:<br><br>
+                            MemberID:<br><br>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: left">
+                            <input type="text" id="AddMemberToGroup" size=25 placeholder="GroupID"><br>
+                            <input type="text" id="MemberID" size=25 placeholder="Name">
+                        </div>
+
+                    </div>
+                    <div><button type="button" onclick="addUserToGroup();">Add member</button></div>
+
+                    <h3>Add moderator to a group</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right">
+                            GroupID:<br><br>
+                            Moderator's UserID:<br><br>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: left">
+                            <input type="text" id="moderator-group" size=25 placeholder="frnds4eva"><br>
+                            <input type="text" id="moderatorId" size=25 placeholder="spidey">
+                        </div>
+
+                    </div>
+                    <div><button type="button" onclick="addModeratorToGroup();">Add moderator</button></div>
+
+                    <h3 style="color: red">Delete a group</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right">
+                            GroupID:<br><br>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: left">
+                            <input type="text" id="GroupToDelete" size=25 placeholder="GroupID">
+                        </div>
+
+                    </div>
+                    <div><button type="button" onclick="deleteGroup();" style="background-color: red">Delete</button></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="requests-to-make" class="col tabcontent">
+            <div class="row">
+
+                <div class="col-md-12 col-lg-12">
+                    <h3>Send Friend request</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right">
+                            User ID:<br><br>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: left">
+                            <input type="text" id="to_request" placeholder="Pepper45"/>
+                        </div>
+
+                    </div>
+                    <div><button type="button" onclick="sendInvitation(true);">Send Request</button></div>
+
+                    <h3>Send invite to a member to join a group</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right">
+                            User ID:<br><br>
+                            Group ID:<br><br>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: left">
+                            <input type="text" id="to_invite" placeholder="kiddo19"/><br>
+                            <input type="text" id="invite_group" placeholder="friends4eva"/>
+                        </div>
+
+                    </div>
+                    <div><button type="button" onclick="sendInvitation(false);">Invite a member</button></div>
+
+                    <h3>Request to remove a user from a group</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right">
+                            GroupID:<br><br>
+                            <button type="button" onclick="getMembersOfGroup();">Get Members</button><br><br>
+                            <button type="button" onclick="getModerators(null, true);">Get Moderators</button>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: left">
+                            <input type="text" id="eviction_request_group" placeholder="friends4eva"/><br>
+                            <select id="members-dropdown">
+                            </select><br><br><br>
+                            <select id="moderator-dropdown">
+                            </select><br><br><br>
+                        </div>
+
+                    </div>
+
+                    <div><button type="button" onclick="evictGroupRequest();">Request Eviction</button></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="requests-to-approve" class="col tabcontent">
+            <div class="row">
+
+                <div class="col-md-12 col-lg-12">
+                    <Button onclick="getAllInvites()">Get Requests to Approve</Button>
+                    <div class="row" style="margin: 20px 20px 20px 20px">
+                        <div class="col-sm-12 col-md-4 col-lg-4" style="text-align: center">
+                            <h3>Friend Requests</h3>
+                            <div style="border: 1px solid #d2dbe3; border-radius: 8px; height: 50%" id="friend-requests"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4" style="text-align: center">
+                            <h3>Group joining Requests</h3>
+                            <div style="border: 1px solid #d2dbe3; border-radius: 8px; height: 50%" id="group-requests"></div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-4 col-lg-4" style="text-align: center">
+                            <h3>Remove user from group Requests</h3>
+                            <div style="border: 1px solid #d2dbe3; border-radius: 8px; height: 50%" id="evict-requests"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="lib/js/config.js"></script>
+<script src="lib/js/util.js"></script>
+<script src="lib/js/jquery.emojiarea.js"></script>
+<script src="lib/js/emoji-picker.js"></script>
+
+<script>
+    $(function () {
+        window.emojiPicker = new EmojiPicker({
+            emojiable_selector: '[data-emojiable=true]',
+            assetsPath: 'lib/img',
+            popupButtonClasses: 'fa fa-smile-o'
+        });
+
+        window.emojiPicker.discover();
+    });
+</script>
+
+</body>
+
+<script src="websocket.js"></script>
+
+</html>

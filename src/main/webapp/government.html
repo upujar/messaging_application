@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Government</title>
+    <link rel="stylesheet" href="governmentStyle.css">
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="2">
+            <input type="text" id="gov_id" placeholder="UserId"/>
+            <input type="password" id="password" placeholder="Password"/>
+            <button type="button" onclick="connect();" >Connect</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" size="51" id="from" placeholder="User"/>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" size="51" id="start" placeholder="Start date mm/dd/yyyy"/>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" size="51" id="end" placeholder="End date mm/dd/yyyy"/>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" onclick="getMsgs();">Get Messages</button>
+        </td>
+    </tr>
+</table>
+
+<textarea title="Wire Tapping" readonly="true" rows="50" cols="50" id="log"></textarea>
+<textarea title="History" readonly="true" rows="50" cols="50" id="log2"></textarea>
+</body>
+<script src="governmentScript.js"></script>
+</html>
